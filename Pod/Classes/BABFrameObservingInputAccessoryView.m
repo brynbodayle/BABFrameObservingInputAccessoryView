@@ -82,7 +82,9 @@ static void *BABFrameObservingContext = &BABFrameObservingContext;
     [super layoutSubviews];
     
     CGRect frame = self.superview.frame;
-    self.inputAcessoryViewFrameChangedBlock(frame);
+    if(self.inputAcessoryViewFrameChangedBlock){
+        self.inputAcessoryViewFrameChangedBlock(frame);
+    }
 }
 
 @end
