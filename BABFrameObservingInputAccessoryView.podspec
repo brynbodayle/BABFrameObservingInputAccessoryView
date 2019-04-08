@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BABFrameObservingInputAccessoryView"
-  s.version          = "0.1.0"
+  s.version          = "0.2.4"
   s.summary          = "A simple view which allows for an iOS Messages style keyboard input view and panning behavior. "
   s.description      = <<-DESC
 BABFrameObservingInputAccessoryView
@@ -28,7 +28,7 @@ I'd love to here any questions, suggestions, or issues you might have. I've been
 
                        DESC
   s.homepage         = "https://github.com/brynbodayle/BABFrameObservingInputAccessoryView"
-  s.screenshots     = "https://camo.githubusercontent.com/ffbb6066decd2c186108248d56ee6d1296813a59/687474703a2f2f7777772e6272796e626f6461796c652e636f6d2f46696c65732f4241424672616d654f6273657276696e67496e7075744163636573736f7279566965772e676966"
+  s.screenshots     = "http://brynbodayle.com/Files/BABCropperView.gif"
   s.license          = 'MIT'
   s.author           = { "Bryn Bodayle" => "bryn.bodayle@gmail.com" }
   s.source           = { :git => "https://github.com/brynbodayle/BABFrameObservingInputAccessoryView.git", :tag => s.version.to_s }
@@ -38,10 +38,6 @@ I'd love to here any questions, suggestions, or issues you might have. I've been
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'BABFrameObservingInputAccessoryView' => ['Pod/Assets/*.png']
-  }
-
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
 end

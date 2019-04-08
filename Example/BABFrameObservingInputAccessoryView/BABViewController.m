@@ -26,19 +26,18 @@
     
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
-    BABFrameObservingInputAccessoryView *inputView = [[BABFrameObservingInputAccessoryView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    BABFrameObservingInputAccessoryView *inputView = [[BABFrameObservingInputAccessoryView alloc] init];
     inputView.userInteractionEnabled = NO;
     
     self.textField.inputAccessoryView = inputView;
     
     __weak typeof(self)weakSelf = self;
     
-    inputView.inputAcessoryViewFrameChangedBlock = ^(CGRect inputAccessoryViewFrame){
+    inputView.keyboardFrameChangedBlock = ^(BOOL keyboardVisible, CGRect keyboardFrame){
         
-        CGFloat value = CGRectGetHeight(weakSelf.view.frame) - CGRectGetMinY(inputAccessoryViewFrame) - CGRectGetHeight(weakSelf.textField.inputAccessoryView.frame);
-        
+        //Adjust the offset for different situation, e.g: personal hotspot.. etc
+        CGFloat value = CGRectGetHeight([[UIScreen mainScreen] bounds]) - CGRectGetMinY(keyboardFrame);
         weakSelf.toolbarContainerVerticalSpacingConstraint.constant = MAX(0, value);
-        
         [weakSelf.view layoutIfNeeded];
         
     };
